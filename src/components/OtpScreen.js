@@ -13,7 +13,7 @@ const OtpScreen = (props) => {
         }
     };
     const isDisabled = (enteredOtp) => {
-        if(enteredOtp.length === 4)
+        if (enteredOtp.length === 4)
             return false;
         return true;
     }
@@ -46,15 +46,14 @@ const OtpScreen = (props) => {
             })}
 
             <p>OTP Entered - {otp.join("")}</p>
-            <p>
-                {/* Button to clear all otp input */}
-                <button onClick={e => clearInput()}> 
-                    Clear
-                </button>
-                <button disabled={isDisabled(otp.join(""))} onClick={e => verifyInput()}>
-                    Verify OTP
-                </button>
-            </p>
+            <p>Didn't Receive the Code? <span style={{cursor:"pointer"}} onClick={e => props.update(props.phone)}>Resend</span></p>
+            {/* Button to clear all otp input */}
+            <button onClick={e => clearInput()}>
+                Clear
+            </button>
+            <button disabled={isDisabled(otp.join(""))} onClick={e => verifyInput()}>
+                Verify
+            </button>
         </div>
     );
 }

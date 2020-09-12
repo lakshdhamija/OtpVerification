@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/App.css';
 import LoginForm from './LoginForm';
 import OtpScreen from './OtpScreen';
+import Success from './Success';
 import logo from "../images/logo.png";
 
 class App extends React.Component {
@@ -70,14 +71,14 @@ class App extends React.Component {
       return (
         <div className="App">
           <img className="logo" src={logo} alt="Logo" />
-          <OtpScreen phone={this.state.value} match={this.otpMatch} />
+          <OtpScreen phone={this.state.value} update={this.generateOtp} match={this.otpMatch} />
         </div>
       );
     } else if (this.state.verifiedOtp) {
       return (
         <div className="App">
           <img className="logo" src={logo} alt="Logo" />
-          Success!
+          <Success />
         </div>
       );
     }
