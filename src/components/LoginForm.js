@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
         
         this.setState({ value });
         if(isValidPhoneNumber(value)){
-            console.log('hello');
             this.setState({isDisabled: false}); 
         }else{
             this.setState({isDisabled: true});
@@ -36,7 +35,9 @@ class LoginForm extends React.Component {
                 />
                 < p > We will send you a one time SMS message.</p>
                 <p>Charges may apply</p>
-                <button disabled={this.state.isDisabled} onClick={() => this.props.update(this.state.value)}>Sign In with OTP</button>
+                <button disabled={this.state.isDisabled} onClick={() => this.props.update(this.state.value)}>
+                    Sign In with OTP
+                </button>
             </div>
         );
     }

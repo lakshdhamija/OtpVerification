@@ -8,41 +8,54 @@ class App extends React.Component {
     super();
     this.state = {
       value: "",
-      verifiedOtp: false
+      verifiedOtp: false,
     }
-    this.handler = this.handler.bind(this);
+    this.generateOtp = this.generateOtp.bind(this);
   }
-  async generateOtp() {
-    if (this.state.value.length === 0) return;
+  async generateOtp(phone) {
     try {
-      let res = await fetch(''); // api call to backend
+      let res = await fetch('http://localhost:8000/api/v1/otp/generateOtp', {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }); // api call to backend
       let result = await res.json();
       // Since we cannot send message to phone, we show an alert containing otp sent from backend
-      if (result && result.status) {
-        alert(`OTP from backend: ${result.otp}`); // in production, generated otp will not be sent here
-        // this.setState({
-        //   otp: result.otp
-        // });
+      if (result && result.message === "success") {
+        alert(`Generated OTP from backend: ${result.otp}. Please note it down.`); // in production, generated otp will not be sent here
       }
-      else alert('Some error occurred. Please try again.');
+      else {
+        alert('Some error occurred. Please try again.');
+        return;
+      }
+      this.setState({ value: phone });
     } catch (e) {
       console.log('Error in referencing api to generate OTP', e);
     }
   }
-  handler(value) {
-    this.setState({ value });
-    this.generateOtp();
-  }
-  async otpMatch(userEnteredOtp){
-    try{
-      let res = await fetch(''); // api call to backend
+  async otpMatch(userEnteredOtp) {
+    console.log(userEnteredOtp);
+    try {
+      let res = await fetch('http://localhost:8000/api/v1/otp/verifyOtp', {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userEnteredOtp: userEnteredOtp
+        })
+      }); // api call to backend
       let result = await res.json();
-      if (result && result.status) {
+      if (result && result.message === "success") {
         this.setState({
           verifiedOtp: true
         });
+      } else {
+        alert('OTP did not match. Please try again!');
+        this.refs.child.clearInput();
       }
-    } catch (e){
+    } catch (e) {
       console.log('Error in referencing api to generate OTP', e);
     }
   }
@@ -50,17 +63,17 @@ class App extends React.Component {
     if (this.state.value.length === 0) {
       return (
         <div className="App">
-          <LoginForm update={this.handler} />
+          <LoginForm update={this.generateOtp} />
         </div>
       );
-    } else if(this.state.value.length !== 0 && !this.state.verifiedOtp) {
+    } else if (this.state.value.length !== 0 && !this.state.verifiedOtp) {
       return (
         <div className="App">
           <OtpScreen phone={this.state.value} match={this.otpMatch} />
         </div>
       );
-    } else if(this.state.verifiedOtp){
-      return(
+    } else if (this.state.verifiedOtp) {
+      return (
         <div className="App">
           Success!
         </div>

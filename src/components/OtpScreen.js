@@ -17,6 +17,9 @@ const OtpScreen = (props) => {
             return false;
         return true;
     }
+    const clearInput = () => {
+        setOtp([...otp.map(value => "")]);
+    }
     return (
         <div className="OtpScreen">
             <img className="logo" src={logo} alt="Logo" />
@@ -42,7 +45,7 @@ const OtpScreen = (props) => {
             <p>OTP Entered - {otp.join("")}</p>
             <p>
                 {/* Button to clear all otp input */}
-                <button onClick={e => setOtp([...otp.map(value => "")])}> 
+                <button onClick={e => clearInput()}> 
                     Clear
                 </button>
                 <button disabled={isDisabled(otp.join(""))} onClick={e => props.match(otp.join(""))}>
