@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from "../images/logo.png";
+
 const OtpScreen = (props) => {
     const [otp, setOtp] = useState(new Array(4).fill("")); // defining empty otp array of of length 4
     const reload = () => {
@@ -20,9 +20,12 @@ const OtpScreen = (props) => {
     const clearInput = () => {
         setOtp([...otp.map(value => "")]);
     }
+    const verifyInput = () => {
+        props.match(otp.join(""));
+        clearInput();
+    }
     return (
         <div className="OtpScreen">
-            <img className="logo" src={logo} alt="Logo" />
             <h2>Please verify Mobile Number</h2>
             <p>An OTP is sent to {props.phone}</p>
             <p style={{ cursor: "pointer" }} onClick={reload}>Change Phone Number</p>
@@ -48,7 +51,7 @@ const OtpScreen = (props) => {
                 <button onClick={e => clearInput()}> 
                     Clear
                 </button>
-                <button disabled={isDisabled(otp.join(""))} onClick={e => props.match(otp.join(""))}>
+                <button disabled={isDisabled(otp.join(""))} onClick={e => verifyInput()}>
                     Verify OTP
                 </button>
             </p>

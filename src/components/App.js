@@ -2,15 +2,17 @@ import React from 'react';
 import '../css/App.css';
 import LoginForm from './LoginForm';
 import OtpScreen from './OtpScreen';
+import logo from "../images/logo.png";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       value: "",
-      verifiedOtp: false,
+      verifiedOtp: false
     }
     this.generateOtp = this.generateOtp.bind(this);
+    this.otpMatch = this.otpMatch.bind(this);
   }
   async generateOtp(phone) {
     try {
@@ -35,16 +37,13 @@ class App extends React.Component {
     }
   }
   async otpMatch(userEnteredOtp) {
-    console.log(userEnteredOtp);
     try {
       let res = await fetch('http://localhost:8000/api/v1/otp/verifyOtp', {
-        method: "post",
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type':'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({
-          userEnteredOtp: userEnteredOtp
-        })
+        body: `userEnteredOtp=${userEnteredOtp}`
       }); // api call to backend
       let result = await res.json();
       if (result && result.message === "success") {
@@ -52,8 +51,8 @@ class App extends React.Component {
           verifiedOtp: true
         });
       } else {
-        alert('OTP did not match. Please try again!');
-        this.refs.child.clearInput();
+        alert(`OTP did not match. Please try again! ${result.message}`);
+        this.setState({});
       }
     } catch (e) {
       console.log('Error in referencing api to generate OTP', e);
@@ -63,18 +62,21 @@ class App extends React.Component {
     if (this.state.value.length === 0) {
       return (
         <div className="App">
+          <img className="logo" src={logo} alt="Logo" />
           <LoginForm update={this.generateOtp} />
         </div>
       );
     } else if (this.state.value.length !== 0 && !this.state.verifiedOtp) {
       return (
         <div className="App">
+          <img className="logo" src={logo} alt="Logo" />
           <OtpScreen phone={this.state.value} match={this.otpMatch} />
         </div>
       );
     } else if (this.state.verifiedOtp) {
       return (
         <div className="App">
+          <img className="logo" src={logo} alt="Logo" />
           Success!
         </div>
       );
