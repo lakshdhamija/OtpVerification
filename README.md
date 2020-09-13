@@ -62,10 +62,10 @@ There are two API reference points in this App.
 1. Front-end
 - Root
   - src
-   - components
-   - css
-   - images
-   - index.js
+    - components
+    - css
+    - images
+    - index.js
 
 2. Back-end
 - Root
