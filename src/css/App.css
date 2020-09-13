@@ -52,6 +52,11 @@ button{
     cursor: pointer;
 }
 
+button:disabled,
+button[disabled]{
+    background: #f7b34887;
+}
+
 /* OTP Screen */
 .change-phone{
     color: #f7b348;
