@@ -54,7 +54,7 @@ There are two API reference points in this App.
 #### OTP Screen
 ![Project Image](./src/images/otp.png)
 #### Welcome Screen
-![Project Image](./src/images/welcome.png)
+![Project Image](./src/images/Welcome.png)
 
 ---
 ## Folder Structure
