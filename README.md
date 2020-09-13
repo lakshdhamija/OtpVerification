@@ -2,7 +2,7 @@
 
 ![Project Image](./src/images/main.png)
 
-> This is an OTP verification application.
+> This is an OTP verification application. You can checkout hosted App at: `https://otp-verif.herokuapp.com/`
 
 ---
 
