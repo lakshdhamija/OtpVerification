@@ -4,6 +4,7 @@
 
 > This is an OTP verification application. 
 - You can checkout hosted App at: https://otp-verif.herokuapp.com/
+- Video Explaination: https://youtu.be/vB-W5eTeXsw
 
 ---
 
@@ -18,7 +19,7 @@
 
 ## Description
 
-This in an OTP verification App. When you enter your phone number, the frontend will reference the API to generate an OTP which will be displayed on your screen in an alert box. After this, you will be asked to enter the OTP in a new screen. If OTP matches, you will be redirected to the Welcome Screen, otherwise you will have to enter OTP again.
+This is an OTP verification App. When you enter your phone number, the frontend will reference the API to generate an OTP which will be displayed on your screen in an alert box. After this, you will be asked to enter the OTP in a new screen. If OTP matches, you will be redirected to the Welcome Screen, otherwise you will have to enter OTP again.
 
 #### Technologies
 
