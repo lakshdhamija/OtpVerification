@@ -2,7 +2,7 @@
 
 ![Project Image](./src/images/main.png)
 
-> This is an OTP verification.
+> This is an OTP verification application.
 
 ---
 
