@@ -60,21 +60,21 @@ There are two API reference points in this App.
 ---
 ## Folder Structure
 1. Front-end
--Root
- -src
-  -components
-  -css
-  -images
-  -index.js
+- Root
+  - src
+   - components
+   - css
+   - images
+   - index.js
 
 2. Back-end
--Root
- -backend
-  -controllers
-  -routes
-  -index.js
+- Root
+  - backend
+    - controllers
+    - routes
+    - index.js
 
-The folder structure is made this way to make the porject more scalable.
+The folder structure is made this way to make the project more scalable.
 
 ---
 
