@@ -17,7 +17,7 @@ class App extends React.Component {
   }
   async generateOtp(phone) {
     try {
-      let res = await fetch('http://localhost:8000/api/v1/otp/generateOtp', {
+      let res = await fetch('/api/v1/otp/generateOtp', {
         method: "get",
         headers: {
           "Content-Type": "application/json"
@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   async otpMatch(userEnteredOtp) {
     try {
-      let res = await fetch('http://localhost:8000/api/v1/otp/verifyOtp', {
+      let res = await fetch('/api/v1/otp/verifyOtp', {
         method: "POST",
         headers: {
           'Content-Type':'application/x-www-form-urlencoded'
