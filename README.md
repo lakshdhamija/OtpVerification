@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Read Me Template
 
-## Available Scripts
+![Project Image](./src/images/main.png)
 
-In the project directory, you can run:
+> This is an OTP verification.
 
-### `npm start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Description](#description)
+- [How To Use](#how-to-use)
+- [References](#references)
+- [License](#license)
+- [Author Info](#author-info)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Description
 
-### `npm run build`
+This in an OTP verification App. When you enter your phone number, the frontend will reference the API to generate an OTP which will be displayed on your screen in an alert box. After this, you will be asked to enter the OTP in a new screen. If OTP matches, you will be redirected to the Welcome Screen, otherwise you will have to enter OTP again.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Technologies
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- ReactJs(Forntend)
+- NodeJs/ExpressJs(Backend)
+- HTML
+- CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## How To Use
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- To run, simply clone or download the repository to your system.
+- Navigate to directory and run `npm install` in terminal to install the dependencies
+- Run `npm start` to start the React server(hosts the frontend) on port 3000.
+- Type `cd backend` to navigate to backend folder and run `npm start` again to start the backend server on port 8000.
+- Now you can visit `http://localhost:3000/` on your browser to see the project
+#### API Reference
+There are two API reference points in this App. 
+1. /api/v1/otp/generateOtp - It is a GET method. An OTP will be generated in the backend and returned to the frontend to be displayed on the browser.
+2. /api/v1/otp/verifyOtp - It is a POST method. `userEnteredOtp` is required to be passed in the body of the request. This otp will be matched with the OTP that was generated in the backend. Will return "success" if OTP matches, else "mismatch" will be returned.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## References
+- https://www.npmjs.com/package/react-phone-number-input - library used to format phone number input.
 
-## Learn More
+---
+## Screens
+#### Login Screen
+![Project Image](./src/images/main.png)
+#### OTP Screen
+![Project Image](./src/images/otp.png)
+#### Welcome Screen
+![Project Image](./src/images/welcome.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
+## Folder Structure
+1. Front-end
+-Root
+ -src
+  -components
+  -css
+  -images
+  -index.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Back-end
+-Root
+ -backend
+  -controllers
+  -routes
+  -index.js
 
-### Code Splitting
+The folder structure is made this way to make the porject more scalable.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
 
-### Analyzing the Bundle Size
+## Author Info
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- LinkedIn - [@lakshdhamija](https://linkedin.com/in/lakshdhamija)
