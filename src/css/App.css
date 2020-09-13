@@ -1,0 +1,110 @@
+.App{
+    width:60%;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    min-width: 270px;
+    color: #888888;
+}
+img{
+    width: 90%;
+}
+h2{
+    color: black;
+}
+
+.phone-input{
+    position: relative;
+    width: 300px;
+    margin: 20px 0;
+}
+.phone-input input{
+    padding:6px;
+    border: 1px solid #f7b348;
+    outline: none;
+    caret-color: #f7b348;
+}
+
+.overlay-text-phone-input{
+    position: absolute;
+    font-size:10px;
+    background: white;
+    z-index: 1;
+    top:-65%;
+    left:22%;
+    
+}
+.login-screen-footer{
+    font-size: 10px;
+}
+button{
+    background: #f7b348;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* OTP Screen */
+.change-phone{
+    color: #f7b348;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.otp-screen input{
+    width: 6%;
+    padding: 10px;
+    margin-left: 10px;
+    outline: none;
+    caret-color: #f7b348;
+}
+span{
+    color: #f7b348;
+    cursor: pointer;
+}
+.clear-btn{
+    margin-right: 10px;
+}
+.questions{
+    margin:0;
+}
+.get-started-btn{
+    margin-top:50px;
+}
+
+@media screen and (max-width: 800px){
+    .App{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 600px){
+    .App{
+        width:90%;
+    }
+    h2{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 360px){
+    img{
+        width: 100%;
+    }
+    h2{
+        font-size: 19px;
+    }
+    .phone-input{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .overlay-text-phone-input{
+        left:24%;
+        font-size: 9px;
+    }
+}

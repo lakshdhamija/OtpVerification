@@ -25,10 +25,10 @@ const OtpScreen = (props) => {
         clearInput();
     }
     return (
-        <div className="OtpScreen">
+        <div className="otp-screen">
             <h2>Please verify Mobile Number</h2>
             <p>An OTP is sent to {props.phone}</p>
-            <p style={{ cursor: "pointer" }} onClick={reload}>Change Phone Number</p>
+            <p className="change-phone" onClick={reload}>Change Phone Number</p>
 
             {otp.map((data, index) => {
                 return (
@@ -46,9 +46,9 @@ const OtpScreen = (props) => {
             })}
 
             <p>OTP Entered - {otp.join("")}</p>
-            <p>Didn't Receive the Code? <span style={{cursor:"pointer"}} onClick={e => props.update(props.phone)}>Resend</span></p>
+            <p>Didn't Receive the Code? <span onClick={e => props.update(props.phone)}>Resend</span></p>
             {/* Button to clear all otp input */}
-            <button onClick={e => clearInput()}>
+            <button className="clear-btn" onClick={e => clearInput()}>
                 Clear
             </button>
             <button disabled={isDisabled(otp.join(""))} onClick={e => verifyInput()}>
