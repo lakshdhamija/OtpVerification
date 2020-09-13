@@ -71,7 +71,11 @@ There are two API reference points in this App.
 - Root
   - backend
     - controllers
+      - api
+        - v1
     - routes
+      - api
+        - v1
     - index.js
 
 The folder structure is made this way to make the project more scalable.
